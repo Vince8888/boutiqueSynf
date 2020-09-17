@@ -4,7 +4,7 @@ Lineshop - Boutique
 {% endblock %}
 {% block body %}
 <div class="row">
-    <nav class="col-12 navbar navbar-expand-md ml-4">
+    <nav class=" navbar navbar-expand-md ml-4">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -27,7 +27,7 @@ Lineshop - Boutique
                 <img src="{{ asset('image/'~ article.getImage)}}" class="card-img-top img-fluid img-size-max" alt="">
                 <div class="card-title">
                     <span><i>{{article.getName}}</i></span>
-                    <span class="green"><b>{{article.getPrice}}€</b></span>
+                    <span class="green"><b>{{article.getPrice|number_format(2, '.', ',')}}€</b></span>
                 </div>
                 <div class="card-text text-justify">
                     <i>{{article.getDescription}}</i>
