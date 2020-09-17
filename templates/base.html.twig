@@ -54,7 +54,7 @@
     <div class="d-none d-md-block">
     <div class="row justify-content-center bg-secondary text-light p-2">
         {% if app.user %}
-            Wellcome {{app.user.email}}
+            Bienvenue {{app.user.email}}
                 <b><a href="{{path('app_logout')}}" class="login-title ml-2">logout </a></b>
                 {%  if is_granted('ROLE_ADMIN') %} <b><a href="{{path('create_article')}}" class="login-title ml-2"> | create article</a></b>{% endif %}
         {% else %}
@@ -65,8 +65,6 @@
     </div>
 </div>    
 </header>
-<hr>
-
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
 <hr>
