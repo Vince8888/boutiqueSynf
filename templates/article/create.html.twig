@@ -4,7 +4,11 @@
 
 {% block body %}
 
-<div class="container mb-5">
+<div class="container">
+    <div class="row justify-content-left mt-3 mb-2">
+        <h1>Création d'un article</h1>
+    </div>
+    <div class="row justify-content-left">
     {{ form_start(form)}}
         <div class="form-group">
             <label for="exampleInputEmail1">Nom de l'article</label>
@@ -27,5 +31,6 @@
         </div>
         {{ form_row(form.envoyer,{'attr':{'class':"btn btn-md btn-green lienCate"}}) }}
     {{ form_end(form) }}
+    </div>
 </div>
 {% endblock %}

@@ -4,7 +4,11 @@
 
 {% block body %}
 <div class="container">
-    <div class="row ">
+    <div class="row justify-content-left mt-3 mb-2">
+        <h1>Please sign in</h1>
+    </div>
+    
+    <div class="row justify-content-left">
         <div class="col">
             <form method="post">
                 {% if error %}
@@ -20,7 +24,7 @@
 
 
 
-                <h1>Please sign in</h1>
+                
                 <div class="form-group">
                     <label for="inputEmail" class="sr-only">Email</label>
                 </div>
@@ -52,10 +56,6 @@
                 </button>
                 </div>
             </form>
-
-
-
-
         </div>
     </div>
 </div>

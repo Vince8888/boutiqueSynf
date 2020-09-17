@@ -8,28 +8,30 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
-  {{ form_start(registrationForm) }}
-  <div class="form-group">
-    <label for="exampleInputEmail1">Adresse email</label>
-     {{ form_row(registrationForm.email) }}
-    <small id="emailHelp" class="form-text text-muted">Ne partagez pas votre adresse et mot de passe avec tout le monde</small>
+  <div class="row justify-content-left mt-3 mb-2">
+        <h1>Register</h1>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Mot de passe</label>
-    {{ form_row(registrationForm.plainPassword, {
-            label: ' '
-        }) }}
-   
-  </div>
-  <div class="form-group form-check">
-   {{ form_row(registrationForm.agreeTerms) }}
-  </div>
-   <button type="submit" class="btn btn-md btn-green">Register</button>
+    
+  <div class="row justify-content-left">
+    {{ form_start(registrationForm) }}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Adresse email</label>
+      {{ form_row(registrationForm.email) }}
+      <small id="emailHelp" class="form-text text-muted">Ne partagez pas votre adresse et mot de passe avec tout le monde</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mot de passe</label>
+      {{ form_row(registrationForm.plainPassword, {
+              label: ' '
+          }) }}
+    
+    </div>
+    <div class="form-group form-check">
+    {{ form_row(registrationForm.agreeTerms) }}
+    </div>
+    <button type="submit" class="btn btn-md btn-green">Register</button>
 
-    {{ form_end(registrationForm) }}
-
+      {{ form_end(registrationForm) }}
+  </div>
 </div>
 {% endblock %}
