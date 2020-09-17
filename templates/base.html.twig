@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js "></script>
+</head>
+<title>{% block title %}{% endblock %}</title>
+{% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+<header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-12 navbar navbar-expand-md navbar-dark bg-dark text-light">
+            <button class="navbar-toggler ml-2" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="{{path('home')}}" class="nav-brand text-light ml-4 mt-2 mr-4">
+                <h2>LineshoP</h2>
+            </a>
+            <div class="nav-item d-none d-md-block"><i>The best online store, for real.</i></div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="nav-item d-block d-md-none ml-auto mr-2"><a href="{{path('app_logout')}}" class="login-title ml-2"><b>logout</b></a></div>
+            {% else %}
+                <div class="nav-item d-block d-md-none ml-auto mr-2"><a href="{{ path('app_login')}}" class="login-title ml-2"><b>login</b></a></div>
+                <div class="nav-item d-block d-md-none ml-auto mr-2"><a href="{{ path('app_register')}}" class="login-title ml-2"><b>register</b></a></div>
+            {% endif %}
+            {%  if is_granted('ROLE_ADMIN') %} <div class="nav-item d-block d-md-none ml-auto mr-2"><a href="{{path('create_article')}}" class="login-title ml-2"><b>create article</b></a></div>{% endif %}
+   
+            <div class="nav-item caddie d-none d-md-block ml-auto p-2"><a href="{{ path('panier') }}"></a></div>
+            <div class="nav-item text-center p-2 d-none d-md-block"><span class="green-title">ARTICLES</span><br><span
+                    id="count"><b>
+                    {% if app.session.get('basket') %}
+                        {{app.session.get('basket').count}}
+                    {% else %}
+                        0
+                    {% endif %}</b></span></div>
+            <div class="nav-item text-center p-2 mr-4 d-none d-md-block"><span class="green-title">TOTAL</span><br><span
+                    id="total"><b>{% if app.session.get('basket') %}{{app.session.get('basket').total}}{% else %}0{% endif %} €</b></span></div>
+        </nav>
+    </div>
+    <div class="d-none d-md-block">
+    <div class="row justify-content-center bg-secondary text-light p-2">
+        {% if app.user %}
+            Wellcome {{app.user.email}}
+                <b><a href="{{path('app_logout')}}" class="login-title ml-2">logout </a></b>
+                {%  if is_granted('ROLE_ADMIN') %} <b><a href="{{path('create_article')}}" class="login-title ml-2"> | create article</a></b>{% endif %}
+        {% else %}
+                <b><a href="{{path('app_login')}}" class="login-title ml-2">login | </a></b>
+                <b><a href="{{path('app_register')}}" class="login-title ml-2">register</a> </b>  
+        {% endif %}
+        </div>
+    </div>
+</div>    
+</header>
+<hr>
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+<hr>
+<footer class="text-center text-light bg-dark p-3">
+    ©Copyright - AFPA 2019
+</footer>
+
+</body>
+</html>

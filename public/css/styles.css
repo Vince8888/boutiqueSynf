@@ -1,0 +1,42 @@
+.caddie a{
+    background: url("../image/caddie.png") no-repeat;
+    width: 31px;
+    height: 27px;
+    display: block;
+    text-indent: -9898px;
+    line-height: 72px;
+}
+
+.green-title {
+    font-family: 'Helvetica';
+    font-size: 12px;
+    color: #aad56b;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); 
+}
+
+.login-title {
+    font-family: 'Helvetica';
+    color: #aad56b;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); 
+}
+
+.img-size-max{
+    max-width:261px;
+    max-height:255px;
+}
+
+.green{
+    color: #74bc0e;
+}
+
+.card:hover{
+    -webkit-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-green {
+    color: white;
+    background-color: #aad56b;
+    border-color: #87a757;
+}
